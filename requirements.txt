@@ -1,0 +1,12 @@
+# Core analysis libraries
+pandas
+numpy
+
+# Visualisation and notebook work
+matplotlib
+jupyter
+
+# File handling and data collection
+openpyxl
+yfinance
+requests
