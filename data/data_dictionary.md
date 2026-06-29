@@ -128,27 +128,66 @@ Must be derived from validated raw stock data stored in `data/raw` and tied back
 
 **Purpose**
 
-Provide an audit trail for every dataset, metric, and external source used in the project.
+Provide the evidence audit trail for every dataset, metric, claim, and external source used in the project.
 
 **Expected columns**
 
-- `metric`
-- `period`
-- `value`
-- `unit`
-- `source_type`
-- `source_name`
-- `source_date`
-- `access_date`
-- `source_link`
-- `notes`
+| Column | Description | Example value | Required? |
+| --- | --- | --- | --- |
+| `source_id` | Unique ID for each source log entry. | `S001` | Yes |
+| `hypothesis_id` | Hypothesis linked to the source or claim. Multiple IDs can be separated with semicolons. | `H1` | Yes |
+| `metric_or_claim` | Metric, claim, or research item being tracked. | `Revenue growth` | Yes |
+| `period` | Time period covered by the source or claim. | `TBD` | Yes |
+| `value` | Data value recorded from the source after verification. Use `TBD` until collected. | `TBD` | Yes |
+| `unit` | Unit of measurement for the value, if applicable. | `TBD` | No |
+| `source_type` | Category of source used for verification. | `Nike Investor Relations` | Yes |
+| `source_name` | Name of the exact source document, page, filing, or provider. | `TBD` | Yes |
+| `source_date` | Date the source was published or filed. | `TBD` | No |
+| `access_date` | Date the source was accessed for the project. | `TBD` | Yes |
+| `source_link` | Link to the source, added only after a source is selected. | `TBD` | No |
+| `evidence_role` | How the source relates to the linked hypothesis. | `pending` | Yes |
+| `verification_status` | Current verification state of the source or claim. | `not verified` | Yes |
+| `notes` | Short explanation of context, limitations, or follow-up checks. | `Placeholder for future evidence` | No |
 
 **Notes**
 
 - This file should be updated whenever a new source is used.
+- Screenshots and user notes are research leads only, not evidence.
+- A claim should only be marked as verified after checking a reliable source.
 - Values should only be entered after source verification.
 - Notes can explain extraction decisions, caveats, or missing context.
+- Every major metric or claim used in the final report should be traceable to `source_log.csv`.
 
 **Source requirement**
 
 Every financial, stock, and valuation data point used in the project should be traceable through this log.
+
+## Source Log Controlled Values
+
+**`hypothesis_id`**
+
+- `H1`
+- `H2`
+- `H3`
+- `H4`
+- `H5`
+- `H6`
+- `H7`
+- `H8`
+- `H9`
+- Multiple IDs can be separated with semicolons if one source relates to more than one hypothesis.
+
+**`evidence_role`**
+
+- `pending`
+- `supports`
+- `weakens`
+- `mixed`
+- `context`
+
+**`verification_status`**
+
+- `not verified`
+- `verified`
+- `needs review`
+- `conflicting`
