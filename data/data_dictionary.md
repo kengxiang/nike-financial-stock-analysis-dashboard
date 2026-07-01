@@ -10,11 +10,14 @@ Store original financial statement data collected from verified public sources b
 
 **Expected columns**
 
+- `source_id`
 - `period`
 - `fiscal_year`
 - `fiscal_quarter`
+- `period_type`
 - `statement_type`
 - `metric_name`
+- `reported_value`
 - `metric_value`
 - `unit`
 - `currency`
@@ -22,6 +25,7 @@ Store original financial statement data collected from verified public sources b
 - `source_date`
 - `source_link`
 - `load_date`
+- `notes`
 
 **Notes**
 
